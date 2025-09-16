@@ -1,0 +1,167 @@
+:root {
+    --primary-color: #c8102e; /* Milwaukee Red */
+    --secondary-color: #ffb81c; /* Bahco Orange/Yellow */
+    --background-color: #f4f4f4;
+    --text-color: #333;
+    --card-background: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.08);
+    --border-radius: 12px;
+    --transition-speed: 0.3s;
+}
+
+#katalogy {
+    background-color: var(--background-gray);
+}
+
+/* --- Kontajner --- */
+.brand-catalog-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- Hlavička --- */
+.catalog-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.catalog-header h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.catalog-header p {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+/* --- Mriežka značiek --- */
+.brand-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+/* --- Karta značky --- */
+.brand-card {
+    background-color: var(--card-background);
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 15px var(--shadow-color);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: all var(--transition-speed) ease;
+    border-top: 5px solid transparent;
+}
+
+.brand-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* Dynamické farby pre okraj karty */
+.brand-card[data-brand-color] {
+    border-top-color: var(--brand-color);
+}
+
+.brand-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.brand-logo-wrapper {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    background-color: #f9f9f9;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.brand-logo {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.brand-info h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0;
+    text-align: left;
+}
+
+.brand-info p {
+    font-size: 0.9rem;
+    color: #777;
+    margin: 0;
+}
+
+.catalog-list {
+    padding: 1.5rem;
+    list-style: none;
+    flex-grow: 1;
+}
+
+.catalog-list-item {
+    margin-bottom: 1rem;
+}
+
+.catalog-list-item:last-child {
+    margin-bottom: 0;
+}
+
+.catalog-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    transition: all var(--transition-speed) ease;
+}
+
+.catalog-link:hover {
+    background-color: #f0f0f0;
+    color: var(--primary-color);
+}
+
+/* Dynamické farby pre hover linku */
+.brand-card[data-brand-color] .catalog-link:hover {
+    color: var(--brand-color);
+}
+
+.catalog-link i {
+    margin-right: 1rem;
+    font-size: 1.2rem;
+    width: 20px;
+    text-align: center;
+    color: #aaa;
+    transition: color var(--transition-speed) ease;
+}
+
+.catalog-link:hover i {
+    color: inherit;
+}
+
+/* --- Responzívny dizajn --- */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+    .catalog-header h1 {
+        font-size: 2.2rem;
+    }
+    .brand-grid {
+        grid-template-columns: 1fr;
+    }
+}
